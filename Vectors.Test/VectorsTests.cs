@@ -22,7 +22,6 @@ namespace Vectors.Test
         public void Cross3DTest1()
         {
             Assert.That(VectorOperation.Cross3D(a, b).Equals(new Vector(-3, 6, -3)));
-            Assert.That(!VectorOperation.Cross3D(a, b).Equals(VectorOperation.Cross3D(b, a)));
         }
 
         [Test]
@@ -41,6 +40,12 @@ namespace Vectors.Test
         public void Cross3DTest4()
         {
             Assert.That(VectorOperation.Cross3D(d, e).Equals(new Vector(10, 68, -54)));
+        }
+
+        [Test]
+        public void Cross3DTest5()
+        {
+            Assert.That(!VectorOperation.Cross3D(a, b).Equals(VectorOperation.Cross3D(b, a)));
         }
     }
 }
