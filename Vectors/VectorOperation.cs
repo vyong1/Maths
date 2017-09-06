@@ -7,9 +7,35 @@ using Vectors.VectorClasses;
 
 namespace Vectors
 {
-    public class VectorOperation
+    public static class VectorOperation3D
     {
-        public static Vector Cross3D(Vector a, Vector b)
+
+        #region Add/Sub/Scalar Mult
+
+        public static Vector Add(Vector a, Vector b)
+        {
+            return new Vector(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+        }
+
+        public static Vector Subtract(Vector a, Vector b)
+        {
+            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        }
+
+        public static Vector ScalarMultiply(decimal scalar, Vector a)
+        {
+            return new Vector(a.X * scalar, a.Y * scalar, a.Z * scalar);
+        }
+
+        #endregion
+
+        #region Dot
+
+        #endregion
+
+        #region Cross
+
+        public static Vector Cross(Vector a, Vector b)
         {
             decimal x_comp = Evaluate2x2Determinant(Component.X, a, b);
             decimal y_comp = Evaluate2x2Determinant(Component.Y, a, b) * -1;
@@ -30,34 +56,34 @@ namespace Vectors
 
         private static void AssignDeterminantNumbers
             (
-            out decimal topLeft, 
-            out decimal topRight, 
-            out decimal botLeft, 
+            out decimal topLeft,
+            out decimal topRight,
+            out decimal botLeft,
             out decimal botRight,
-            Component component, 
-            Vector a, 
+            Component component,
+            Vector a,
             Vector b
             )
         {
             switch (component)
             {
                 case Component.X:
-                    topLeft = a.Y_Component;
-                    topRight = a.Z_Component;
-                    botLeft = b.Y_Component;
-                    botRight = b.Z_Component;
+                    topLeft = a.Y;
+                    topRight = a.Z;
+                    botLeft = b.Y;
+                    botRight = b.Z;
                     break;
                 case Component.Y:
-                    topLeft = a.X_Component;
-                    topRight = a.Z_Component;
-                    botLeft = b.X_Component;
-                    botRight = b.Z_Component;
+                    topLeft = a.X;
+                    topRight = a.Z;
+                    botLeft = b.X;
+                    botRight = b.Z;
                     break;
                 case Component.Z:
-                    topLeft = a.X_Component;
-                    topRight = a.Y_Component;
-                    botLeft = b.X_Component;
-                    botRight = b.Y_Component;
+                    topLeft = a.X;
+                    topRight = a.Y;
+                    botLeft = b.X;
+                    botRight = b.Y;
                     break;
                 default:
                     topLeft = 0;
@@ -67,6 +93,8 @@ namespace Vectors
                     break;
             }
         }
+
+        #endregion
     }
 
     public enum Component

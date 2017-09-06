@@ -8,15 +8,15 @@ namespace Vectors.VectorClasses
 {
     public class Vector
     {
-        public decimal X_Component { get; }
-        public decimal Y_Component { get; }
-        public decimal Z_Component { get; }
+        public decimal X { get; }
+        public decimal Y { get; }
+        public decimal Z { get; }
 
-        public Vector(decimal X_Component, decimal Y_Component, decimal Z_Component)
+        public Vector(decimal X, decimal Y, decimal Z)
         {
-            this.X_Component = X_Component;
-            this.Y_Component = Y_Component;
-            this.Z_Component = Z_Component;
+            this.X = X;
+            this.Y = Y;
+            this.Z = Z;
         }
 
         public override string ToString()
@@ -25,13 +25,13 @@ namespace Vectors.VectorClasses
 
             //x
             sb.Append("<");
-            sb.Append(this.X_Component);
+            sb.Append(this.X);
             //y
             sb.Append(", ");
-            sb.Append(this.Y_Component);
+            sb.Append(this.Y);
             //z
             sb.Append(", ");
-            sb.Append(this.Z_Component);
+            sb.Append(this.Z);
             sb.Append(">");
 
             return sb.ToString();
@@ -39,9 +39,9 @@ namespace Vectors.VectorClasses
 
         public bool Equals(Vector vec)
         {
-            if (vec.X_Component == X_Component
-                && vec.Y_Component == Y_Component
-                && vec.Z_Component == Z_Component)
+            if (vec.X == X
+                && vec.Y == Y
+                && vec.Z == Z)
             {
                 return true;
             }

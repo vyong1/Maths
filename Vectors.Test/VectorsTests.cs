@@ -10,7 +10,7 @@ using Vectors;
 namespace Vectors.Test
 {
     [TestFixture]
-    public class Cross3DTests
+    public class CrossTests
     {
         Vector a = new Vector(1, 2, 3);
         Vector b = new Vector(4, 5, 6);
@@ -19,33 +19,33 @@ namespace Vectors.Test
         Vector e = new Vector(8, 2, 4);
 
         [Test]
-        public void Cross3DTest1()
+        public void CrossTest1()
         {
-            Assert.That(VectorOperation.Cross3D(a, b).Equals(new Vector(-3, 6, -3)));
+            Assert.That(VectorOperation3D.Cross(a, b).Equals(new Vector(-3, 6, -3)));
         }
 
         [Test]
-        public void Cross3DTest2()
+        public void CrossTest2()
         {
-            Assert.That(VectorOperation.Cross3D(c, b).Equals(new Vector(3, -6, 3)));
+            Assert.That(VectorOperation3D.Cross(c, b).Equals(new Vector(3, -6, 3)));
         }
 
         [Test]
-        public void Cross3DTest3()
+        public void CrossTest3()
         {
-            Assert.That(VectorOperation.Cross3D(b, c).Equals(new Vector(-3, 6, -3)));
+            Assert.That(VectorOperation3D.Cross(b, c).Equals(new Vector(-3, 6, -3)));
         }
 
         [Test]
-        public void Cross3DTest4()
+        public void CrossTest4()
         {
-            Assert.That(VectorOperation.Cross3D(d, e).Equals(new Vector(10, 68, -54)));
+            Assert.That(VectorOperation3D.Cross(d, e).Equals(new Vector(10, 68, -54)));
         }
 
         [Test]
-        public void Cross3DTest5()
+        public void CrossTest5()
         {
-            Assert.That(!VectorOperation.Cross3D(a, b).Equals(VectorOperation.Cross3D(b, a)));
+            Assert.That(!VectorOperation3D.Cross(a, b).Equals(VectorOperation3D.Cross(b, a)));
         }
     }
 }
